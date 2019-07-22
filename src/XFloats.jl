@@ -151,8 +151,8 @@ end
 
 ## ================================================================================ ##
 
-show(io::IO, x::XFloat16) = print(io, Float16(reintepret(Float32, x)))
-show(io::IO, x::XFloat32) = print(io, Float32(reintepret(Float64, x)))
+show(io::IO, x::XFloat16) = print(io, Float16(reinterpret(Float32, x)))
+show(io::IO, x::XFloat32) = print(io, Float32(reinterpret(Float64, x)))
 
 hash(x::XFloat16) = hash(reintepret(Float32, x))
 hash(x::XFloat32) = hash(reintepret(Float64, x))
