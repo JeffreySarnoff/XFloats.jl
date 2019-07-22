@@ -17,7 +17,7 @@ import Base: precision, exponent_mask, significand_mask, eps, exponent, signific
     ceil, floor, trunc, round,
     hypot, clamp
 
-import Math: log, log1p, log10, log2, exp, expm1, exp10, exp2,
+import Base.Math: log, log1p, log10, log2, exp, expm1, exp10, exp2,
     sin, cos, tan, csc, sec, cot, sinpi, cospi,
     sincos,
     asin, acos, atan, acsc, asec, acot,
