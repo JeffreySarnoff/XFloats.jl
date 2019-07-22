@@ -107,7 +107,7 @@ end
 
 ## ================================================================================ ##
 
-const UnaryOps_notoftype = ( :signbit )
+const UnaryOps_notoftype = ( :precision, :exponent_mask, :signficand_mask, :exponent, :significand, :signbit )
 
 const UnaryOps_oftype = (
     :(+), :(-), :sign, :abs, :inv, :sqrt, :cbrt, 
