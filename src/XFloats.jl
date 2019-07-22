@@ -218,7 +218,11 @@ for (XT, FT) in ((:XFloat16, :Float32), (:XFloat32, :Float64))
     @eval $Op(x::$XT) = reinterpret($XT, $Op(reinterpret($FT, x)))
   end
 
-            
+  LinearAlgebra.:(*)(x::Matrix{XFloat16}, y::Matrix{XFloat16}) =
+      reinterpret(XFloat16, LinearAlgebra.:(*)(reinterpret(Float32,x), reinterpret(Float32,y)))
+
+  LinearAlgebra.:(*)(x::Matrix{XFloat32}, y::Matrix{XFloat32}) =
+      reinterpret(XFloat32, LinearAlgebra.:(*)(reinterpret(Float64,x), reinterpret(Float64,y)))
 end
 
 #  ================================================================================  #
