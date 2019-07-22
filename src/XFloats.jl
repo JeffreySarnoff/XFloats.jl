@@ -9,8 +9,9 @@ import Base: hash, promote_rule, convert,
     Int8, Int16, Int32, Int64, Int128, BigInt
 
 import Base: precision, exponent_mask, significand_mask, eps, exponent, significand,
-    floatmax, floatmin, nextfloat, prevfloat, frexp, ldexp, modf, decompose,
+    zero, one, floatmax, floatmin, nextfloat, prevfloat, frexp, ldexp, modf, decompose,
     ==, <, <=, >=, >, !=, isless, isequal, cmp,
+    iszero, isone, isfinite, isinteger, isinf, isnan, issubnormal,
     signbit, sign, flipsign, copysign,
     +, -, *, /, \, abs, inv, sqrt, cbrt,
     mod, mod1, rem, fld, fld1, div, cld, fldmod, fldmod1, divrem,
@@ -107,9 +108,13 @@ end
 
 ## ================================================================================ ##
 
-const UnaryOps_notoftype = ( :precision, :exponent_mask, :signficand_mask, :exponent, :significand, :signbit )
+const UnaryOps_notoftype = (
+    :precision, :exponent_mask, :signficand_mask, :exponent, :significand, :signbit,
+    :iszero, :isone, :isfinite, :isinf, :isnan, :issubnormal, :isinteger
+)
 
 const UnaryOps_oftype = (
+    :zero, :one,
     :(+), :(-), :sign, :abs, :inv, :sqrt, :cbrt, 
     :log, :log1p, :log2, :log10, :exp, :expm1, :exp2, :exp10,
     :sin, :cos, :tan, :csc, :sec, :cot, :sinpi, :cospi,
