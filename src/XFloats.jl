@@ -16,7 +16,7 @@ import Base: precision, exponent_mask, significand_mask, eps, exponent, signific
     +, -, *, /, \, abs, inv, sqrt, cbrt,
     mod, mod1, rem, fld, fld1, div, cld, fldmod, fldmod1, divrem,
     ceil, floor, trunc, round,
-    hypot, clamp,
+    muladd, fma, hypot, clamp,
     sum, prod, cumsum
 
 import Base.Math: log, log1p, log10, log2, exp, expm1, exp10, exp2,
