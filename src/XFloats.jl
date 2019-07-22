@@ -2,10 +2,28 @@ module XFloats
 
 export XFloat16, XFloat32
 
-import Base: promote_rule, convert,
+import Base: hash, promote_rule, convert,
+    string, show, tryparse,
     Float16, Float32, Float64, BigFloat,
     UInt8, UInt16, UInt32, UInt64, UInt128,
     Int8, Int16, Int32, Int64, Int128, BigInt
+
+import Base: precision, exponent_mask, significand_mask, eps, exponent, significand,
+    floatmax, floatmin, nextfloat, prevfloat, frexp, ldexp, modf, decompose,
+    ==, <, <=, >=, >, !=, isless, isequal, cmp,
+    signbit, sign, flipsign, copysign,
+    +, -, *, /, \, abs, inv, sqrt, cbrt,
+    mod, mod1, rem, fld, fld1, div, cld, fldmod, fldmod1, divrem,
+    ceil, floor, trunc, round,
+    hypot, clamp
+
+import Math: log, log1p, log10, log2, exp, expm1, exp10, exp2,
+    sin, cos, tan, csc, sec, cot, sinpi, cospi,
+    sincos,
+    asin, acos, atan, acsc, asec, acot,
+    sinh, cosh, tanh, csch, sech, coth,
+    asinh, acosh, atanh, acsch, asech, acoth
+
 
 primitive type XFloat16 <: AbstractFloat 32 end
 primitive type XFloat32 <: AbstractFloat 64 end
