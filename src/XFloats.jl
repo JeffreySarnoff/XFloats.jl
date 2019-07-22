@@ -70,6 +70,11 @@ for T in (:Int8, :Int16, :Int32, :Int64, :Int128, :BigInt,
   end
 end
 
+XFloat16(x::Bool) = reinterpret(XFloat16, Float32(x))
+XFloat32(x::Bool) = reinterpret(XFloat32, Float64(x))
+Base.Bool(x::XFloat16) = Bool(reinterpret(Float32, x))
+Base.Bool(x::XFloat32) = Bool(reinterpret(Float64, x))
+
 promote_rule(::Type{XFloat16}, ::Type{XFloat32}) = XFloat32
 convert(::Type{XFloat32}, x::XFloat16) = reinterpret(XFloat32, Float64(reinterpret(Float32, x)))
 convert(::Type{XFloat16}, x::XFloat32) = reinterpret(XFloat16, Float32(reinterpret(Float64, x)))
@@ -217,6 +222,11 @@ for (XT, FT) in ((:XFloat16, :Float32), (:XFloat32, :Float64))
   for Op in MatrixToMatrixOps_oftype
     @eval $Op(x::$XT) = reinterpret($XT, $Op(reinterpret($FT, x)))
   end
+
+  LinearAlgebra.inv(x::Array{XFloat16, N}) where {N} =
+      reinterpret(XFloat16, LinearAlgebra.inv(reinterpret(Float32, x)))
+  LinearAlgebra.inv(x::Array{XFloat32, N}) where {N} =
+      reinterpret(XFloat32, LinearAlgebra.inv(reinterpret(Float64, x)))
 
   LinearAlgebra.dot(x::Array{XFloat16, N}, y::Array{XFloat16, N}) where {N} =
       reinterpret(XFloat16, LinearAlgebra.dot(reinterpret(Float32, x), reinterpret(Float32, y)))
