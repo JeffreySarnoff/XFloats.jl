@@ -107,6 +107,50 @@ end
 
 ## ================================================================================ ##
 
+const UnaryOps_notoftype = ( :signbit )
+
+const UnaryOps_oftype = (
+    :(+), :(-), :sign, :abs, :inv, :sqrt, :cbrt, 
+    :log, :log1p, :log2, :log10, :exp, :expm1, :exp2, :exp10,
+    :sin, :cos, :tan, :csc, :sec, :cot, :sinpi, :cospi,
+    :sincos,
+    :asin, :acos, :atan, :acsc, :asec, :acot,
+    :sinh, :cosh, :tanh, :csch, :sech, :coth,
+    :asinh, :acosh, :atanh, :acsch, :asech, :acoth
+)
+
+const BinaryOps_oftype = (
+    :(+), :(-), :(*), :(/), :(\), :hypot, :flipsign, :copysign
+)
+
+const BinaryOps_notoftype = ( :(<), :(<=), :(>=), :(>), :(!=), :(==), :isless, :isequal, :cmp )
+
+const TrinaryOps_oftype = (
+    :clamp, :muladd, :fma
+)
+
+#  ================================================================================  #
+
+for (XT, FT) in ((:XFloat16, :Float32), (:XFloat32, :Float64))
+  for Op in UnaryOps_notoftype
+    @eval $Op(x::$XT) = $Op(reinterpret($FT, x))
+  end
+  for Op in BinaryOps_notoftype
+    @eval $Op(x::$XT, y::$XT) = $Op(reinterpret($FT, x), reinterpret($FT, y))
+  end
+  for Op in UnaryOps_oftype
+    @eval $Op(x::$XT) = reinterpret($XT, $Op(reinterpret($FT, x)))
+  end
+  for Op in BinaryOps_oftype
+    @eval $Op(x::$XT, y::$XT) = reinterpret($XT, $Op(reinterpret($FT, x), reinterpret($FT, y)))
+  end
+  for Op in TrinaryOps_oftype
+    @eval $Op(x::$XT, y::$XT, z::$XT) = reinterpret($XT, $Op(reinterpret($FT, x), reinterpret($FT, y), reinterpret($FT, z)))
+  end
+end
+
+## ================================================================================ ##
+
 show(io::IO, x::XFloat16) = print(io, Float16(reintepret(Float32, x)))
 show(io::IO, x::XFloat32) = print(io, Float32(reintepret(Float64, x)))
 
