@@ -169,7 +169,7 @@ const UnaryMatrixOps_oftype = (
     :asin, :acos, :atan, :acsc, :asec, :acot,
     :sinh, :cosh, :tanh, :csch, :sech, :coth,
     :asinh, :acosh, :atanh, :acsch, :asech, :acoth
-  #=
+  =#
 
 #=
 const BinaryMatrixOps_oftype = (
