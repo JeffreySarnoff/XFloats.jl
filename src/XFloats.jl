@@ -159,9 +159,7 @@ const BinaryVectorOps_oftype = (
 )
 
 const UnaryMatrixOps_oftype = (
-    :det, :tr, :inv
- )
-   #=
+    :det, :tr, :inv,
     :sqrt, :cbrt,
     :log, :log1p, :log2, :log10, :exp, :expm1, :exp2, :exp10,
     :sin, :cos, :tan, :csc, :sec, :cot, :sinpi, :cospi,
@@ -169,13 +167,11 @@ const UnaryMatrixOps_oftype = (
     :asin, :acos, :atan, :acsc, :asec, :acot,
     :sinh, :cosh, :tanh, :csch, :sech, :coth,
     :asinh, :acosh, :atanh, :acsch, :asech, :acoth
-  =#
+)
 
-#=
 const BinaryMatrixOps_oftype = (
     :(*), :(\), :(/)
 )
-=#
 
 const MatrixToVectorOps_oftype = (
     :eigvals, :svdvals
@@ -214,24 +210,20 @@ for (XT, FT) in ((:XFloat16, :Float32), (:XFloat32, :Float64))
   for Op in BinaryVectorOps_oftype
     @eval $Op(x::$XT, y::$XT) = reinterpret($XT, $Op(reinterpret($FT, x), reinterpret($FT, y)))
   end
-#=
   for Op in UnaryMatrixOps_oftype
     @eval $Op(x::$XT) = reinterpret($XT, $Op(reinterpret($FT, x)))
   end
-=#
-#=
   for Op in BinaryMatrixOps_oftype
     @eval $Op(x::$XT, y::$XT) = reinterpret($XT, $Op(reinterpret($FT, x), reinterpret($FT, y)))
   end
-=#
-#=
+
   for Op in MatrixToVectorOps_oftype
     @eval $Op(x::$XT) = reinterpret($XT, $Op(reinterpret($FT, x)))
   end
   for Op in MatrixToMatrixOps_oftype
     @eval $Op(x::$XT) = reinterpret($XT, $Op(reinterpret($FT, x)))
   end
-=#
+    
   LinearAlgebra.inv(x::Array{XFloat16, N}) where {N} =
       reinterpret(XFloat16, LinearAlgebra.inv(reinterpret(Float32, x)))
   LinearAlgebra.inv(x::Array{XFloat32, N}) where {N} =
