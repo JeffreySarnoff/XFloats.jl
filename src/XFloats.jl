@@ -224,13 +224,14 @@ for (XT, FT) in ((:XFloat16, :Float32), (:XFloat32, :Float64))
     @eval $Op(x::$XT, y::$XT) = reinterpret($XT, $Op(reinterpret($FT, x), reinterpret($FT, y)))
   end
 =#
+#=
   for Op in MatrixToVectorOps_oftype
     @eval $Op(x::$XT) = reinterpret($XT, $Op(reinterpret($FT, x)))
   end
   for Op in MatrixToMatrixOps_oftype
     @eval $Op(x::$XT) = reinterpret($XT, $Op(reinterpret($FT, x)))
   end
-
+=#
   LinearAlgebra.inv(x::Array{XFloat16, N}) where {N} =
       reinterpret(XFloat16, LinearAlgebra.inv(reinterpret(Float32, x)))
   LinearAlgebra.inv(x::Array{XFloat32, N}) where {N} =
