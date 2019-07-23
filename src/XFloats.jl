@@ -27,6 +27,7 @@ import Base.Math: log, log1p, log10, log2, exp, expm1, exp10, exp2,
     asinh, acosh, atanh, acsch, asech, acoth
 
 using LinearAlgebra
+import LinearAlgebra
 import LinearAlgebra: norm, normalize, dot,
     *, det, tr, inv, lu, qr, factorize,
     svdvals, eigvals, eigvecs
