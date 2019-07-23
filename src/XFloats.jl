@@ -224,36 +224,36 @@ for (XT, FT) in ((:XFloat16, :Float32), (:XFloat32, :Float64))
     @eval $Op(x::$XT) = reinterpret($XT, $Op(reinterpret($FT, x)))
   end
     
-  LinearAlgebra.inv(x::Array{XFloat16, N}) where {N} =
-      reinterpret(XFloat16, LinearAlgebra.inv(reinterpret(Float32, x)))
-  LinearAlgebra.inv(x::Array{XFloat32, N}) where {N} =
-      reinterpret(XFloat32, LinearAlgebra.inv(reinterpret(Float64, x)))
+  inv(x::Array{XFloat16, N}) where {N} =
+      reinterpret(XFloat16, inv(reinterpret(Float32, x)))
+  inv(x::Array{XFloat32, N}) where {N} =
+      reinterpret(XFloat32, inv(reinterpret(Float64, x)))
 
-  LinearAlgebra.dot(x::Array{XFloat16, N}, y::Array{XFloat16, N}) where {N} =
-      reinterpret(XFloat16, LinearAlgebra.dot(reinterpret(Float32, x), reinterpret(Float32, y)))
-  LinearAlgebra.dot(x::Array{XFloat32, N}, y::Array{XFloat32, N}) where {N} =
-      reinterpret(XFloat32, LinearAlgebra.dot(reinterpret(Float64, x), reinterpret(Float64, y)))
+  dot(x::Array{XFloat16, N}, y::Array{XFloat16, N}) where {N} =
+      reinterpret(XFloat16, dot(reinterpret(Float32, x), reinterpret(Float32, y)))
+  dot(x::Array{XFloat32, N}, y::Array{XFloat32, N}) where {N} =
+      reinterpret(XFloat32, dot(reinterpret(Float64, x), reinterpret(Float64, y)))
 
-  LinearAlgebra.:(+)(x::Matrix{XFloat16}, y::Matrix{XFloat16}) =
-      reinterpret(XFloat16, LinearAlgebra.:(*)(reinterpret(Float32,x), reinterpret(Float32,y)))
-  LinearAlgebra.:(+)(x::Matrix{XFloat32}, y::Matrix{XFloat32}) =
-      reinterpret(XFloat32, LinearAlgebra.:(*)(reinterpret(Float64,x), reinterpret(Float64,y)))
-  LinearAlgebra.:(-)(x::Matrix{XFloat16}, y::Matrix{XFloat16}) =
-      reinterpret(XFloat16, LinearAlgebra.:(*)(reinterpret(Float32,x), reinterpret(Float32,y)))
-  LinearAlgebra.:(-)(x::Matrix{XFloat32}, y::Matrix{XFloat32}) =
-      reinterpret(XFloat32, LinearAlgebra.:(*)(reinterpret(Float64,x), reinterpret(Float64,y)))
-  LinearAlgebra.:(*)(x::Matrix{XFloat16}, y::Matrix{XFloat16}) =
-      reinterpret(XFloat16, LinearAlgebra.:(*)(reinterpret(Float32,x), reinterpret(Float32,y)))
-  LinearAlgebra.:(*)(x::Matrix{XFloat32}, y::Matrix{XFloat32}) =
-      reinterpret(XFloat32, LinearAlgebra.:(*)(reinterpret(Float64,x), reinterpret(Float64,y)))
-  LinearAlgebra.:(\)(x::Matrix{XFloat16}, y::Matrix{XFloat16}) =
-      reinterpret(XFloat16, LinearAlgebra.:(\)(reinterpret(Float32,x), reinterpret(Float32,y)))
-  LinearAlgebra.:(\)(x::Matrix{XFloat32}, y::Matrix{XFloat32}) =
-      reinterpret(XFloat32, LinearAlgebra.:(\)(reinterpret(Float64,x), reinterpret(Float64,y)))
-  LinearAlgebra.:(/)(x::Matrix{XFloat16}, y::Matrix{XFloat16}) =
-      reinterpret(XFloat16, LinearAlgebra.:(/)(reinterpret(Float32,x), reinterpret(Float32,y)))
-  LinearAlgebra.:(/)(x::Matrix{XFloat32}, y::Matrix{XFloat32}) =
-      reinterpret(XFloat32, LinearAlgebra.:(/)(reinterpret(Float64,x), reinterpret(Float64,y)))
+  :(+)(x::Matrix{XFloat16}, y::Matrix{XFloat16}) =
+      reinterpret(XFloat16, :(*)(reinterpret(Float32,x), reinterpret(Float32,y)))
+  :(+)(x::Matrix{XFloat32}, y::Matrix{XFloat32}) =
+      reinterpret(XFloat32, :(*)(reinterpret(Float64,x), reinterpret(Float64,y)))
+  :(-)(x::Matrix{XFloat16}, y::Matrix{XFloat16}) =
+      reinterpret(XFloat16, :(*)(reinterpret(Float32,x), reinterpret(Float32,y)))
+  :(-)(x::Matrix{XFloat32}, y::Matrix{XFloat32}) =
+      reinterpret(XFloat32, :(*)(reinterpret(Float64,x), reinterpret(Float64,y)))
+  :(*)(x::Matrix{XFloat16}, y::Matrix{XFloat16}) =
+      reinterpret(XFloat16, :(*)(reinterpret(Float32,x), reinterpret(Float32,y)))
+  :(*)(x::Matrix{XFloat32}, y::Matrix{XFloat32}) =
+      reinterpret(XFloat32, :(*)(reinterpret(Float64,x), reinterpret(Float64,y)))
+  :(\)(x::Matrix{XFloat16}, y::Matrix{XFloat16}) =
+      reinterpret(XFloat16, :(\)(reinterpret(Float32,x), reinterpret(Float32,y)))
+  :(\)(x::Matrix{XFloat32}, y::Matrix{XFloat32}) =
+      reinterpret(XFloat32, :(\)(reinterpret(Float64,x), reinterpret(Float64,y)))
+  :(/)(x::Matrix{XFloat16}, y::Matrix{XFloat16}) =
+      reinterpret(XFloat16, :(/)(reinterpret(Float32,x), reinterpret(Float32,y)))
+  :(/)(x::Matrix{XFloat32}, y::Matrix{XFloat32}) =
+      reinterpret(XFloat32, :(/)(reinterpret(Float64,x), reinterpret(Float64,y)))
 end
 
 #  ================================================================================  #
