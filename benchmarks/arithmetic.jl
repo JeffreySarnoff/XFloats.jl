@@ -58,8 +58,6 @@ relspeed_arith64 =
         (@noelide @belapsed testarith($a64,$b64,$c64)), digits=2);
 
 
-apsed polyval($fastply64w, $fastq64)), digits=1);
-
 
 relspeeds = string(
 "\n\n\trelative speeds",
