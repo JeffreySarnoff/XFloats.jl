@@ -26,5 +26,5 @@ end
 
 XFloat16(x::Bool) = reinterpret(XFloat16, Float32(x))
 XFloat32(x::Bool) = reinterpret(XFloat32, Float64(x))
-Base.Bool(x::XFloat16) = Bool(reinterpret(Float32, x))
-Base.Bool(x::XFloat32) = Bool(reinterpret(Float64, x))
+Bool(x::XFloat16) = Bool(reinterpret(Float32, x))
+Bool(x::XFloat32) = Bool(reinterpret(Float64, x))
