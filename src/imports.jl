@@ -3,7 +3,8 @@ import Base: hash, promote_rule, convert,
     string, show, tryparse,
     Float16, Float32, Float64, BigFloat,
     UInt8, UInt16, UInt32, UInt64, UInt128,
-    Int8, Int16, Int32, Int64, Int128, BigInt
+    Int8, Int16, Int32, Int64, Int128, BigInt,
+    Bool
 
 import Base: precision, exponent_mask, significand_mask, eps, exponent, significand,
     zero, one, floatmax, floatmin, nextfloat, prevfloat, frexp, ldexp, modf, decompose,
