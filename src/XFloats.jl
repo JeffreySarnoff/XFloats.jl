@@ -49,10 +49,11 @@ include("type/representions.jl")
 
 ## ================================================================================ ##
 
-const UnaryOps_notoftype = (
+const UnaryOps = (
     :precision, :exponent_mask, :signficand_mask, :exponent, :significand, :signbit,
-    :iszero, :isone, :isfinite, :isinf, :isnan, :issubnormal, :isinteger
-)
+    :iszero, :isone, :isfinite, :isinf, :isnan, :issubnormal, :isinteger)
+
+const BinaryOps = (:(<), :(<=), :(>=), :(>), :(!=), :(==), :isless, :isequal, :cmp)
 
 const UnaryOps_oftype = (
     :zero, :one, :ceil, :floor, :trunc, :round,
@@ -62,21 +63,15 @@ const UnaryOps_oftype = (
     :sincos,
     :asin, :acos, :atan, :acsc, :asec, :acot,
     :sinh, :cosh, :tanh, :csch, :sech, :coth,
-    :asinh, :acosh, :atanh, :acsch, :asech, :acoth
-)
+    :asinh, :acosh, :atanh, :acsch, :asech, :acoth)
 
 const BinaryOps_oftype = (
     :(+), :(-), :(*), :(/), :(\), :hypot, :flipsign, :copysign,
-    :mod, :mod1, :fld, :fld1, :div, :rem, :cld
-)
+    :mod, :mod1, :fld, :fld1, :div, :rem, :cld)
 
-const BinaryOps_notoftype = (
-    :(<), :(<=), :(>=), :(>), :(!=), :(==), :isless, :isequal, :cmp
-)
 
 const TrinaryOps_oftype = (
-    :clamp, :muladd, :fma
-)
+    :clamp, :muladd, :fma)
 
 const UnaryVectorOps_oftype = (
     :norm, :sum, :prod, :normalize
@@ -116,10 +111,10 @@ const MatrixOperations = (
 #  ================================================================================  #
 
 for (XT, FT) in ((:XFloat16, :Float32), (:XFloat32, :Float64))
-  for Op in UnaryOps_notoftype
+  for Op in UnaryOps
     @eval $Op(x::$XT) = $Op(reinterpret($FT, x))
   end
-  for Op in BinaryOps_notoftype
+  for Op in BinaryOps
     @eval $Op(x::$XT, y::$XT) = $Op(reinterpret($FT, x), reinterpret($FT, y))
   end
   for Op in UnaryOps_oftype
