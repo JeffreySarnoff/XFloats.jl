@@ -20,7 +20,7 @@ include("type/construct.jl")
 include("type/promote_convert.jl")
 include("type/representions.jl")
 
-include("dispatch/imports.jl")
+include("imports.jl")
 include("dispatch/specialize.jl")
 
 end # module XFloats
