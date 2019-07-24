@@ -6,8 +6,6 @@ using LinearAlgebra
 using Random
 using SpecialFunctions
 
-include("imports.jl")
-
 ## ================================================================================ ##
 
 primitive type XFloat16 <: AbstractFloat 32 end
@@ -22,7 +20,7 @@ include("type/construct.jl")
 include("type/promote_convert.jl")
 include("type/representions.jl")
 
-
-
+include("specialize/imports.jl")
+include("specialize/reinterpret.jl")
 
 end # module XFloats
