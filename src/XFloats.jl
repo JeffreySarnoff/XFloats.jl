@@ -1,4 +1,21 @@
+"""
+    XFloats.jl
+
+See: [`XFloat16`](@ref), [`XFloat32`](@ref)
+"""
 module XFloats
+
+"""
+    XFloat16
+
+
+""" XFloat16
+
+"""
+    XFloat32
+
+
+""" XFloat32
 
 export XFloat16, XFloat32
 
