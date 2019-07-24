@@ -16,6 +16,11 @@ XFloat16(x::XFloat32) = reinterpret(XFloat16, Float32(reinterpret(Float64, x)))
 XFloat32(x::XFloat16) = reinterpret(XFloat32, Float64(reinterpret(Float32, x)))
 XFloat32(x::XFloat32) = x
 
+XFloat16(x::Float32) = reinterpret(XFloat16, x)
+Float32(x::XFloat16) = reinterpret(Float16, x)
+XFloat32(x::Float64) = reinterpret(XFloat32, x)
+Float64(x::XFloat32) = reinterpret(Float64, x)
+
 include("type/construct.jl")
 include("type/promote_convert.jl")
 include("type/representions.jl")
