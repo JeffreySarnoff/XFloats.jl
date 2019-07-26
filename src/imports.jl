@@ -1,4 +1,3 @@
-
 import Base: hash, promote_rule, convert,
     string, show, tryparse,
     Float16, Float32, Float64, BigFloat,
@@ -19,7 +18,6 @@ import Base: precision, exponent_mask, significand_mask, eps, exponent, signific
 
 import Base.Math: log, log1p, log10, log2, exp, expm1, exp10, exp2,
     sin, cos, tan, csc, sec, cot, sinpi, cospi,
-    sincos,
     asin, acos, atan, acsc, asec, acot,
     sinh, cosh, tanh, csch, sech, coth,
     asinh, acosh, atanh, acsch, asech, acoth
