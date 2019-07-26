@@ -5,17 +5,6 @@ See: [`XFloat16`](@ref), [`XFloat32`](@ref)
 """
 module XFloats
 
-"""
-    XFloat16 is a floating point type
-
-A more accurate alternative to Float16 that holds a Float32 and that performs as a Float32.
-""" XFloat16
-
-"""
-    XFloat32 is a floating point type
-
-A more accurate alternative to Float32 that holds a Float64 and that performs as a Float64.
-""" XFloat32
 
 export XFloat16, XFloat32
 
@@ -25,7 +14,18 @@ using SpecialFunctions
 
 ## ================================================================================ ##
 
+"""
+    XFloat16 is a floating point type
+
+A more accurate alternative to Float16 that holds a Float32 and that performs as a Float32.
+""" 
 primitive type XFloat16 <: AbstractFloat 32 end
+
+"""
+    XFloat32 is a floating point type
+
+A more accurate alternative to Float32 that holds a Float64 and that performs as a Float64.
+""" 
 primitive type XFloat32 <: AbstractFloat 64 end
 
 XFloat16(x::XFloat16) = x
