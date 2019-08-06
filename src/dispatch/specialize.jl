@@ -4,11 +4,11 @@ const UnaryOps = (
     :precision, :exponent_mask, :signficand_mask, :exponent, :significand, :signbit,
     :iszero, :isone, :isfinite, :isinf, :isnan, :issubnormal, :isinteger)
 
-const BinaryOps = (:(<), :(<=), :(>=), :(>), :(!=), :(==), :isless, :isequal, :cmp)
+const BinaryOps = ((<), (<=), (>=), (>), (!=), (==), :isless, :isequal, :cmp)
 
 const UnaryOps_oftype = (
     :zero, :one, :ceil, :floor, :trunc, :round,
-    :(-), :sign, :abs, :inv, :sqrt, :cbrt, 
+    (+), (-), :sign, :abs, :inv, :sqrt, :cbrt, 
     :log, :log1p, :log2, :log10, :exp, :expm1, :exp2, :exp10,
     :sin, :cos, :tan, :csc, :sec, :cot, :sinpi, :cospi,
     :sincos,
@@ -17,7 +17,7 @@ const UnaryOps_oftype = (
     :asinh, :acosh, :atanh, :acsch, :asech, :acoth)
 
 const BinaryOps_oftype = (
-    :(+), :(-), :(*), :(/), :(\), :hypot, :flipsign, :copysign,
+    (+), (-), (*), (/), (\), :hypot, :flipsign, :copysign,
     :mod, :mod1, :fld, :fld1, :div, :rem, :cld)
 
 
