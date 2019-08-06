@@ -8,10 +8,10 @@ Base.tryparse(::Type{XFloat16}, x::String) = reinterpret(XFloat16, tryparse(Floa
 Base.tryparse(::Type{XFloat32}, x::String) = reinterpret(XFloat32, tryparse(Float64, x))
 
 Base.Printf.ini_dec(d::XFloat16, ndigits, digits) =
-    Base.Printf.ini_dec(reinterpret(Float32, d), ndigits, digits))
+    Base.Printf.ini_dec(reinterpret(Float32, d), ndigits, digits)
 
 Base.Printf.ini_dec(d::XFloat32, ndigits, digits) =
-    Base.Printf.ini_dec(reinterpret(Float64, d), ndigits, digits))
+    Base.Printf.ini_dec(reinterpret(Float64, d), ndigits, digits)
 
 
 Base.hash(x::XFloat16) = hash(reinterpret(Float32, x))
