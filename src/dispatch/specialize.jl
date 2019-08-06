@@ -8,7 +8,7 @@ const BinaryOps = ((<), (<=), (>=), (>), (!=), (==), :isless, :isequal, :cmp)
 
 const UnaryOps_oftype = (
     :zero, :one, :ceil, :floor, :trunc, :round,
-    (+), (-), :sign, :abs, :inv, :sqrt, :cbrt, 
+    (-), :sign, :abs, :inv, :sqrt, :cbrt, 
     :log, :log1p, :log2, :log10, :exp, :expm1, :exp2, :exp10,
     :sin, :cos, :tan, :csc, :sec, :cot, :sinpi, :cospi,
     :sincos,
@@ -44,7 +44,7 @@ const UnaryMatrixOps_oftype = (
 )
 
 const BinaryMatrixOps_oftype = (
-    :(*), :(\), :(/)
+    (*), (\), (/)
 )
 
 const MatrixToVectorOps_oftype = (
@@ -108,25 +108,25 @@ for (XT, FT) in ((:XFloat16, :Float32), (:XFloat32, :Float64))
   dot(x::Array{XFloat32, N}, y::Array{XFloat32, N}) where {N} =
       reinterpret(XFloat32, dot(reinterpret(Float64, x), reinterpret(Float64, y)))
 
-  :(+)(x::Matrix{XFloat16}, y::Matrix{XFloat16}) =
+  (+)(x::Matrix{XFloat16}, y::Matrix{XFloat16}) =
       reinterpret(XFloat16, :(*)(reinterpret(Float32,x), reinterpret(Float32,y)))
-  :(+)(x::Matrix{XFloat32}, y::Matrix{XFloat32}) =
+  (+)(x::Matrix{XFloat32}, y::Matrix{XFloat32}) =
       reinterpret(XFloat32, :(*)(reinterpret(Float64,x), reinterpret(Float64,y)))
-  :(-)(x::Matrix{XFloat16}, y::Matrix{XFloat16}) =
+  (-)(x::Matrix{XFloat16}, y::Matrix{XFloat16}) =
       reinterpret(XFloat16, :(*)(reinterpret(Float32,x), reinterpret(Float32,y)))
-  :(-)(x::Matrix{XFloat32}, y::Matrix{XFloat32}) =
+  (-)(x::Matrix{XFloat32}, y::Matrix{XFloat32}) =
       reinterpret(XFloat32, :(*)(reinterpret(Float64,x), reinterpret(Float64,y)))
-  :(*)(x::Matrix{XFloat16}, y::Matrix{XFloat16}) =
+  (*)(x::Matrix{XFloat16}, y::Matrix{XFloat16}) =
       reinterpret(XFloat16, :(*)(reinterpret(Float32,x), reinterpret(Float32,y)))
-  :(*)(x::Matrix{XFloat32}, y::Matrix{XFloat32}) =
+  (*)(x::Matrix{XFloat32}, y::Matrix{XFloat32}) =
       reinterpret(XFloat32, :(*)(reinterpret(Float64,x), reinterpret(Float64,y)))
-  :(\)(x::Matrix{XFloat16}, y::Matrix{XFloat16}) =
+  (\)(x::Matrix{XFloat16}, y::Matrix{XFloat16}) =
       reinterpret(XFloat16, :(\)(reinterpret(Float32,x), reinterpret(Float32,y)))
-  :(\)(x::Matrix{XFloat32}, y::Matrix{XFloat32}) =
+  (\)(x::Matrix{XFloat32}, y::Matrix{XFloat32}) =
       reinterpret(XFloat32, :(\)(reinterpret(Float64,x), reinterpret(Float64,y)))
-  :(/)(x::Matrix{XFloat16}, y::Matrix{XFloat16}) =
+  (/)(x::Matrix{XFloat16}, y::Matrix{XFloat16}) =
       reinterpret(XFloat16, :(/)(reinterpret(Float32,x), reinterpret(Float32,y)))
-  :(/)(x::Matrix{XFloat32}, y::Matrix{XFloat32}) =
+  (/)(x::Matrix{XFloat32}, y::Matrix{XFloat32}) =
       reinterpret(XFloat32, :(/)(reinterpret(Float64,x), reinterpret(Float64,y)))
 end
 
