@@ -28,12 +28,8 @@ const UnaryVectorOps_oftype = (
     :norm, :sum, :prod, :normalize
 )
 
-const BinaryVectorOps_oftype = (
-    :dot,
-)
-
 const UnaryMatrixOps_oftype = (
-    :det, :tr, :inv,
+    :tr,
     :sqrt, :cbrt,
     :log, :log1p, :log2, :log10, :exp, :expm1, :exp2, :exp10,
     :sin, :cos, :tan, :csc, :sec, :cot, :sinpi, :cospi,
@@ -41,18 +37,6 @@ const UnaryMatrixOps_oftype = (
     :asin, :acos, :atan, :acsc, :asec, :acot,
     :sinh, :cosh, :tanh, :csch, :sech, :coth,
     :asinh, :acosh, :atanh, :acsch, :asech, :acoth
-)
-
-const BinaryMatrixOps_oftype = (
-    :(*), :(\), :(/)
-)
-
-const MatrixToVectorOps_oftype = (
-    :eigvals, :svdvals
-)
-
-const MatrixToMatrixOps_oftype = (
-    :eigvecs,
 )
 
 const MatrixOperations = (
