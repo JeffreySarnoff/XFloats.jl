@@ -69,24 +69,8 @@ for (XT, FT) in ((:XFloat16, :Float32), (:XFloat32, :Float64))
   for Op in UnaryMatrixOps_oftype
     @eval $Op(x::Matrix{$XT}) = reinterpret($XT, $Op(reinterpret($FT, x)))
   end
- 
-  for Op in MatrixToVectorOps_oftype
-    @eval $Op(x::Matrix{$XT}) = reinterpret($XT, $Op(reinterpret($FT, x)))
-  end
-  for Op in MatrixToMatrixOps_oftype
-    @eval $Op(x::Matrix{$XT}) = reinterpret($XT, $Op(reinterpret($FT, x)))
-  end
     
-  inv(x::Array{XFloat16, N}) where {N} =
-      reinterpret(XFloat16, inv(reinterpret(Float32, x)))
-  inv(x::Array{XFloat32, N}) where {N} =
-      reinterpret(XFloat32, inv(reinterpret(Float64, x)))
-
-  dot(x::Array{XFloat16, N}, y::Array{XFloat16, N}) where {N} =
-      reinterpret(XFloat16, dot(reinterpret(Float32, x), reinterpret(Float32, y)))
-  dot(x::Array{XFloat32, N}, y::Array{XFloat32, N}) where {N} =
-      reinterpret(XFloat32, dot(reinterpret(Float64, x), reinterpret(Float64, y)))
-
+  
   (+)(x::Matrix{XFloat16}, y::Matrix{XFloat16}) =
       reinterpret(XFloat16, :(*)(reinterpret(Float32,x), reinterpret(Float32,y)))
   (+)(x::Matrix{XFloat32}, y::Matrix{XFloat32}) =
@@ -95,17 +79,5 @@ for (XT, FT) in ((:XFloat16, :Float32), (:XFloat32, :Float64))
       reinterpret(XFloat16, :(*)(reinterpret(Float32,x), reinterpret(Float32,y)))
   (-)(x::Matrix{XFloat32}, y::Matrix{XFloat32}) =
       reinterpret(XFloat32, :(*)(reinterpret(Float64,x), reinterpret(Float64,y)))
-  (*)(x::Matrix{XFloat16}, y::Matrix{XFloat16}) =
-      reinterpret(XFloat16, :(*)(reinterpret(Float32,x), reinterpret(Float32,y)))
-  (*)(x::Matrix{XFloat32}, y::Matrix{XFloat32}) =
-      reinterpret(XFloat32, :(*)(reinterpret(Float64,x), reinterpret(Float64,y)))
-  (\)(x::Matrix{XFloat16}, y::Matrix{XFloat16}) =
-      reinterpret(XFloat16, :(\)(reinterpret(Float32,x), reinterpret(Float32,y)))
-  (\)(x::Matrix{XFloat32}, y::Matrix{XFloat32}) =
-      reinterpret(XFloat32, :(\)(reinterpret(Float64,x), reinterpret(Float64,y)))
-  (/)(x::Matrix{XFloat16}, y::Matrix{XFloat16}) =
-      reinterpret(XFloat16, :(/)(reinterpret(Float32,x), reinterpret(Float32,y)))
-  (/)(x::Matrix{XFloat32}, y::Matrix{XFloat32}) =
-      reinterpret(XFloat32, :(/)(reinterpret(Float64,x), reinterpret(Float64,y)))
 end
 
