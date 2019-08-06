@@ -22,11 +22,9 @@ factorize(x::Matrix{XFloat32}) = reinterpret(XFloat32, factorize(reinterpret(Flo
 inv(x::Matrix{XFloat32}) = reinterpret(XFloat32, inv(reinterpret(Float64, x)))
 det(x::Matrix{XFloat32}) = reinterpret(XFloat32, det(reinterpret(Float64, x)))
 logdet(x::Matrix{XFloat32}) = reinterpret(XFloat32, logdet(reinterpret(Float64, x)))
-logabsdet(x::Matrix{XFloat32}) = reinterpret(XFloat32, logabsdet(reinterpret(Float64, x))
+logabsdet(x::Matrix{XFloat32}) = reinterpret(XFloat32, logabsdet(reinterpret(Float64, x)))
 size(x::Matrix{XFloat32}) = size(reinterpret(Float64, x))
 eigvals(x::Matrix{XFloat32}) = reinterpret(XFloat32, eigvals(reinterpret(Float64, x)))
 eigvecs(x::Matrix{XFloat32}) = reinterpret(XFloat32, eigvecs(reinterpret(Float64, x)))
 svdvals(x::Matrix{XFloat32}) = reinterpret(XFloat32, svdvals(reinterpret(Float64, x)))
-
-                    
-
+  
