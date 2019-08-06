@@ -1,4 +1,4 @@
-import Base: hash, promote_rule, convert,
+import Base: hash,
     string, show, tryparse,
     Float16, Float32, Float64, BigFloat,
     UInt8, UInt16, UInt32, UInt64, UInt128,
