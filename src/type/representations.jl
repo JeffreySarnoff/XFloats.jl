@@ -13,6 +13,18 @@ Base.Printf.ini_dec(d::XFloat16, ndigits, digits) =
 Base.Printf.ini_dec(d::XFloat32, ndigits, digits) =
     Base.Printf.ini_dec(reinterpret(Float64, d), ndigits, digits)
 
+Base.Printf.ini_dec(d::XFloat16, ndigits::Int32, digits) =
+    Base.Printf.ini_dec(reinterpret(Float64, d), ndigits, digits)
+
+Base.Printf.ini_dec(d::XFloat32, ndigits::Int32, digits) =
+    Base.Printf.ini_dec(reinterpret(Float64, d), ndigits, digits)
+
+Base.Printf.ini_dec(d::XFloat16, ndigits::Int64, digits) =
+    Base.Printf.ini_dec(reinterpret(Float64, d), ndigits, digits)
+
+Base.Printf.ini_dec(d::XFloat32, ndigits::Int64, digits) =
+    Base.Printf.ini_dec(reinterpret(Float64, d), ndigits, digits)
+
 
 Base.hash(x::XFloat16) = hash(reinterpret(Float32, x))
 Base.hash(x::XFloat32) = hash(reinterpret(Float64, x))
