@@ -13,8 +13,8 @@ import LinearAlgebra: (*), (/), (\), dot, cross, factorize, inv, det, logdet, lo
 using LinearAlgebra
 using Random
 
-import SpecialFunctions
-using SpecialFunctions
+# import SpecialFunctions
+# using SpecialFunctions
 
 ## ================================================================================ ##
 
