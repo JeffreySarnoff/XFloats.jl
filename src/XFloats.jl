@@ -8,7 +8,8 @@ module XFloats
 
 export XFloat16, XFloat32
 
-import LinearAlgebra: (*), (/), (\), dot, cross, factorize, inv, det, logdet, logabsdet
+import LinearAlgebra: (*), (/), (\), dot, cross, factorize, inv, det, logdet, logabsdet,
+                      size, eigvals, eigvecs, svdvals
 using LinearAlgebra
 using Random
 
