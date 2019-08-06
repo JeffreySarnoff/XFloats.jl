@@ -1,6 +1,6 @@
 desc = "Precision-doubled floating point types nearly as performant as hardware floats."
 keywords = ["floating-point", "accuracy", "precision", "performance"]
-name = "XFloats.jl"
+name = "XFloats"
 uuid =  "ad7b0a5e-d6ee-550c-835e-59a288c14bf3"
 repo = "https://github.com/JeffreySarnoff/XFloats.jl.git"
 author = "Jeffrey Sarnoff"
