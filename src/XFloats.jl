@@ -48,5 +48,6 @@ include("type/representions.jl")
 
 include("imports.jl")
 include("dispatch/specialize.jl")
+include("dispatch/linearalgebra.jl")
 
 end # module XFloats
