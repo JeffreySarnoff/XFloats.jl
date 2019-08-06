@@ -8,7 +8,7 @@ const BinaryOps = (:(<), :(<=), :(>=), :(>), :(!=), :(==), :isless, :isequal, :c
 
 const UnaryOps_oftype = (
     :zero, :one, :ceil, :floor, :trunc, :round,
-    :(+), :(-), :sign, :abs, :inv, :sqrt, :cbrt, 
+    :(-), :sign, :abs, :inv, :sqrt, :cbrt, 
     :log, :log1p, :log2, :log10, :exp, :expm1, :exp2, :exp10,
     :sin, :cos, :tan, :csc, :sec, :cot, :sinpi, :cospi,
     :sincos,
