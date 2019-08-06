@@ -65,9 +65,7 @@ for (XT, FT) in ((:XFloat16, :Float32), (:XFloat32, :Float64))
   for Op in UnaryVectorOps_oftype
     @eval $Op(x::Vector{$XT}) = reinterpret($XT, $Op(reinterpret($FT, x)))
   end
-  for Op in BinaryVectorOps_oftype
-    @eval $Op(x::Vector{$XT}, y::Vector{$XT}) = reinterpret($XT, $Op(reinterpret($FT, x), reinterpret($FT, y)))
-  end
+  
   for Op in UnaryMatrixOps_oftype
     @eval $Op(x::Matrix{$XT}) = reinterpret($XT, $Op(reinterpret($FT, x)))
   end
