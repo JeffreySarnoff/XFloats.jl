@@ -26,6 +26,7 @@ import LinearAlgebra: norm, normalize, dot,
     *, det, tr, inv, lu, qr, factorize,
     svdvals, eigvals, eigvecs
 
+#=
 import SpecialFunctions: export
     airyai,
     airyaiprime,
@@ -75,3 +76,4 @@ import SpecialFunctions: export
     sinint,
     cosint,
     lbinomial
+=#
