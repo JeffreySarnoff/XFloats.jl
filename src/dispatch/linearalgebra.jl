@@ -8,6 +8,10 @@ inv(x::Matrix{XFloat16}) = reinterpret(XFloat16, factorize(reinterpret(Float32, 
 det(x::Matrix{XFloat16}) = reinterpret(XFloat16, det(reinterpret(Float32, x))
 logdet(x::Matrix{XFloat16}) = reinterpret(XFloat16, logdet(reinterpret(Float32, x))
 logabsdet(x::Matrix{XFloat16}) = reinterpret(XFloat16, logabsdet(reinterpret(Float32, x))
+size(x::Matrix{XFloat16}) = size(reinterpret(Float32, x))
+eigvals(x::Matrix{XFloat16}) = reinterpret(XFloat16, eigvals(reinterpret(Float32, x)))
+eigvecs(x::Matrix{XFloat16}) = reinterpret(XFloat16, eigvecs(reinterpret(Float32, x)))
+svdvals(x::Matrix{XFloat16}) = reinterpret(XFloat16, svdvals(reinterpret(Float32, x)))
 
 cross(x::Vector{XFloat32}, y::Vector{XFloat32}) = reinterpret(XFloat32, cross(reinterpret(Float64, x), reinterpret(Float64, y))) 
 (*)(x::Vector{XFloat32}, y::Vector{XFloat32}) = reinterpret(XFloat32, (*)(reinterpret(Float64, x), reinterpret(Float64, y)))
@@ -19,5 +23,10 @@ inv(x::Matrix{XFloat32}) = reinterpret(XFloat32, factorize(reinterpret(Float64, 
 det(x::Matrix{XFloat32}) = reinterpret(XFloat32, det(reinterpret(Float64, x))
 logdet(x::Matrix{XFloat32}) = reinterpret(XFloat32, logdet(reinterpret(Float64, x))
 logabsdet(x::Matrix{XFloat32}) = reinterpret(XFloat32, logabsdet(reinterpret(Float64, x))
+size(x::Matrix{XFloat32}) = size(reinterpret(Float64, x))
+eigvals(x::Matrix{XFloat32}) = reinterpret(XFloat32, eigvals(reinterpret(Float64, x)))
+eigvecs(x::Matrix{XFloat32}) = reinterpret(XFloat32, eigvecs(reinterpret(Float64, x)))
+svdvals(x::Matrix{XFloat32}) = reinterpret(XFloat32, svdvals(reinterpret(Float64, x)))
 
+                    
 
