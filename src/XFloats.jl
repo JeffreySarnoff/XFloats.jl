@@ -44,7 +44,7 @@ Float64(x::XFloat32) = reinterpret(Float64, x)
 
 include("type/construct.jl")
 include("type/promote_convert.jl")
-include("type/representions.jl")
+# include("type/representions.jl")
 
 include("imports.jl")
 include("dispatch/specialize.jl")
