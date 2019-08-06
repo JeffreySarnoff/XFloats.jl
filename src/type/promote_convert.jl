@@ -45,6 +45,11 @@ Base.convert(::Type{BigFloat}, x::XFloat32) = BigFloat(reinterpret(Float64, x))
 for T in (:Int8, :Int16, :Int32, :Int64, :Int128, :BigInt,
           :UInt8, :UInt16, :UInt32, :UInt64, :UInt128)
   @eval begin
+    Base.promote_rule(::Type{XFloat16}, ::Type{$T}) = XFloat16
+    Base.promote_rule(::Type{XFloat32}, ::Type{$T}) = XFloat32
+    Base.promote_rule(::Type{$T}, ::Type{XFloat16}) = XFloat16
+    Base.promote_rule(::Type{$T}, ::Type{XFloat32}) = XFloat32
+                    
     Base.convert(::Type{XFloat16}, x::$T) = XFloat16(Float32(x))
     Base.convert(::Type{XFloat32}, x::$T) = XFloat32(Float64(x))
 
