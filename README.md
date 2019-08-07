@@ -1,31 +1,12 @@
 # XFloats.jl
 
-Some numerically intensive computations are performed. Some deeply enfolded learning strategems
-are applied. Some pharmaceutical designs are to be simulated.  Each domain is approached twice.
-The first time computation proceeds with `Float32s` or `Float16s`, as appropriaate to their respective
-problem domains and algorithmic design.  The second time computation proceeds with `XFloat32s` or
-`XFloat64s`, in correspondance with the floating point types used initially.  The processing times
-are similar, one takes eight hours, the other 7.5 hours.
-
-hours and at most 6 hours to complete.
-
-
-dayindistinguishable to a swing of 10% separated by within a few percent of one another .
-
-The second results are more accurate than the first results.
-
-
-The first time Float32s are used.  The second time XFloat32s are used.
-64is completed in similar time with augmented accuracy.
-
-and provides 
-The , augmented accuracy, rationals with unreal performance <sup>[𝓪](#source)</sup>
-
 ##### Copyright © 2017-2019 by Jeffrey Sarnoff. This work is released under The MIT License.
 
-- there are two XFloat types, (precisely two and intentionally not three) 
-- XFloat16
-- XFloat32
+- These are the XFloats
+
+    - XFloat16
+    - XFloat32
+
 
 ##### _ XFloat are floating point values o_e___X__traccurate
 
