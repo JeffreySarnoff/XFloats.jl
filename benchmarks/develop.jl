@@ -44,13 +44,13 @@ a32, a64 = Float32(pi)/7, Float64(pi)/7
 b32, b64 = Float32(cbrt(3)), Float64(cbrt(3))
 c32, c64 = Float32(sqrt(1/5)), Float64(sqrt(1/5))
 
-x16, x32 = Float16(a32), Float32(a64)
-y16, y32 = Float16(b32), Float32(b64)
-z16, z32 = Float16(c32), Float32(c64)
+x16, x32 = XFloat16(a32), XFloat32(a64)
+y16, y32 = XFloat16(b32), XFloat32(b64)
+z16, z32 = XFloat16(c32), XFloat32(c64)
 
-x16, x32 = Float16(a32), Float32(a64)
-y16, y32 = Float16(b32), Float32(b64)
-z16, z32 = Float16(c32), Float32(c64)
+ax16, ax32 = Float16(a32), Float32(a64)
+by16, by32 = Float16(b32), Float32(b64)
+cz16, cz32 = Float16(c32), Float32(c64)
 
 
 relspeed_add32 =
@@ -61,6 +61,10 @@ relspeed_add64 =
  round( (@noelide @belapsed testadd($x32,$y32,$z32)) /
         (@noelide @belapsed testadd($a64,$b64,$c64)), digits=2);
 
+relspeed_add =
+ round( (@noelide @belapsed testadd($x32,$y32,$z32)) /
+        (@noelide @belapsed testadd($ax64,$by64,$cz64)), digits=2);
+
 relspeed_mul32 =
   round( (@noelide @belapsed testmul($x16,$y16,$z16)) /
          (@noelide @belapsed testmul($a32,$b32,$c32)), digits=2);
@@ -68,6 +72,10 @@ relspeed_mul32 =
 relspeed_mul64 =
  round( (@noelide @belapsed testmul($x32,$y32,$z32)) /
         (@noelide @belapsed testmul($a64,$b64,$c64)), digits=2);
+
+relspeed_mul =
+ round( (@noelide @belapsed testmul($x32,$y32,$z32)) /
+        (@noelide @belapsed testmul($ax64,$by64,$cz64)), digits=2);
 
 relspeed_arith32 =
   round( (@noelide @belapsed testarith($x16,$y16,$z16)) /
@@ -77,6 +85,10 @@ relspeed_arith64 =
  round( (@noelide @belapsed testarith($x32,$y32,$z32)) /
         (@noelide @belapsed testarith($a64,$b64,$c64)), digits=2);
 
+relspeed_arith =
+ round( (@noelide @belapsed testarith($x32,$y32,$z32)) /
+        (@noelide @belapsed testarith($ax64,$by64,$cz64)), digits=2);
+
 relspeed_muladd32 =
   round( (@noelide @belapsed testmuladd($x16,$y16,$z16)) /
          (@noelide @belapsed testmuladd($a32,$b32,$c32)), digits=2);
@@ -84,6 +96,10 @@ relspeed_muladd32 =
 relspeed_muladd64 =
  round( (@noelide @belapsed testmuladd($x32,$y32,$z32)) /
         (@noelide @belapsed testmuladd($a64,$b64,$c64)), digits=2);
+
+relspeed_muladd =
+ round( (@noelide @belapsed testmuladd($x32,$y32,$z32)) /
+        (@noelide @belapsed testmuladd($ax64,$by64,$cz64)), digits=2);
 
 relspeed_fma32 =
   round( (@noelide @belapsed testfma($x16,$y16,$z16)) /
@@ -93,6 +109,9 @@ relspeed_fma64 =
  round( (@noelide @belapsed testfma($x32,$y32,$z32)) /
         (@noelide @belapsed testfma($a64,$b64,$c64)), digits=2);
 
+relspeed_fma =
+ round( (@noelide @belapsed testfma($x32,$y32,$z32)) /
+        (@noelide @belapsed testfma($ax64,$by64,$cz64)), digits=2);
 
 
 relspeeds = string(
@@ -106,3 +125,13 @@ relspeeds = string(
 
 print(relspeeds);
 
+relspeeds = string(
+   "\n\n\trelative speeds",
+   "\n\t  (32)\t (64)\t (mixed)\n\n",
+   "add:   \t $relspeed_add32 \t $relspeed_add64 \t $realspeed_add \n",
+   "mul:   \t $relspeed_mul32 \t $relspeed_mul64 \t $realspeed_add  \n",
+   "arith: \t $relspeed_arith32 \t $relspeed_arith64 \t $realspeed_add  \n",
+   "muladd:\t $relspeed_muladd32 \t $relspeed_muladd64 \t $realspeed_add  \n",
+   "fma:   \t $relspeed_fma32 \t $relspeed_fma64 \t $realspeed_fma \n");
+
+print(relspeeds);
