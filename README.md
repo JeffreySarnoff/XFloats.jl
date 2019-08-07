@@ -11,13 +11,12 @@
 ### benchmarks
 
 ```
-       relative speeds
-       X32∝F32  X64∝F64
+           relative speeds
+           X32∝F32  X64∝F64
 
-add:     1.00    1.08
-mul:     1.08    1.08
-arith:   0.87    1.07
-fma:     0.93    1.08
+    add:     1.00    1.08
+    mul:     1.08    1.08
+    fma:     0.93    1.08
 
 
 ```
