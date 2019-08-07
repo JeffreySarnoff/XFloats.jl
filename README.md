@@ -2,7 +2,23 @@
 
 ##### Copyright © 2017-2019 by Jeffrey Sarnoff. This work is released under The MIT License.
 
-- These are the XFloats
+`XFloats` exports two these two types: `XFloat16`, `XFloat32`.  Use them to compute results that are often more accurate
+and still are obtained quickly.  These floating point types correspond to `Float16` and `Float32`.  The more accurate
+floating point type that corresponds to `Float64` is `Double64` from `DoubleFloats.jl`.  In both relative and absolute
+measure, `Double64` calculates much more slowly than `Float64`, but more quickly than `Float128` from `Quadmath.jl`.
+
+
+that type calculates much
+more slowlywhich is found in another package `DoubleFloats`.
+
+For increased
+accuracy work with values
+are While using `Double64` 
+
+with similar throughput.  do not require comparable remain perfwith little and require nearly as quickly
+and usually more accurately than with little that are often
+more accurate at least as accuratemore accurately than at near systemas floats more accurate `Float16` and `XFloat32` is used with `Float32`.
+corresponds to `Float16`  accurate and performant float types:ing point types extended There are two types of `XFloat`.
 
     - XFloat16
     - XFloat32
