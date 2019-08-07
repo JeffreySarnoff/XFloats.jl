@@ -79,7 +79,7 @@ relspeed_mul64 =
 
 relspeed_mul =
  round( (@noelide @belapsed testmul($x32,$y32,$z32)) /
-        (@noelide @belapsed testmul($axa64,$yb64,$zc64)), digits=2);
+        (@noelide @belapsed testmul($xa64,$yb64,$zc64)), digits=2);
 
 relspeed_arith32 =
   round( (@noelide @belapsed testarith($x16,$y16,$z16)) /
