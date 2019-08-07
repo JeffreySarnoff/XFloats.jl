@@ -97,7 +97,7 @@ relspeeds = string(
 "add:    \t $relspeed_add32 \t $relspeed_add64 \n",
 "mul:    \t $relspeed_mul32 \t $relspeed_mul64 \n",
 "arith:  \t $relspeed_arith32 \t $relspeed_arith64 \n",
-"muladd: \t $relspeed_muladd \t $relspeed_muladd \n",
+"muladd: \t $relspeed_muladd32 \t $relspeed_muladd64 \n",
 "fma:    \t $relspeed_fma32 \t $relspeed_fma64 \n");
 
 print(relspeeds);
