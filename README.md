@@ -4,7 +4,7 @@
 
 `XFloats` exports two these two types: `XFloat16`, `XFloat32`.
 - These floating point types correspond to `Float16` and `Float32`.
-- Use them to compute results that are often more accurate, yet still very fast.
+- Use them to compute results with greater accuracy at very high speed.
 
 
 The accurate floating point type corresponding to `Float64` is `Double64` ([DoubleFloats.jl](https://github.com/JuliaMath/DoubleFloats.jl.git)). That calculates much more slowly.
