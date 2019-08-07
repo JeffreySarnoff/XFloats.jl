@@ -1,48 +1,38 @@
 # XFloats.jl
 
-#### __XFloat32__, __XFloat16__  Augmented Accuracy, Performant Precision
+Some numerically intensive computations are performed. Some deeply enfolded learning strategems
+are applied. Some pharmaceutical designs are to be simulated.  Each domain is approached twice.
+The first time computation proceeds with `Float32s` or `Float16s`, as appropriaate to their respective
+problem domains and algorithmic design.  The second time computation proceeds with `XFloat32s` or
+`XFloat64s`, in correspondance with the floating point types used initially.  The processing times
+are similar, one takes eight hours, the other 7.5 hours.
 
-####  Augmented Accuracy, Performant Precision: __XFloat32__, __XFloat16__ 
-
-
-####  _XFloat32_  augmented accuracy: 
-
-####  _XFloat16_  performant precision 
-
-
-#####  _XFloat32_  augmented accuracy: 
-
-#####  _XFloat16_  performant precision 
+hours and at most 6 hours to complete.
 
 
-###  _XFloat32_  augmented accuracy: 
+dayindistinguishable to a swing of 10% separated by within a few percent of one another .
 
-###  _XFloat16_  performant precision 
-
-
-
-####  augmented accuracy: __XFloat32__
-
-####   performant precision: __XFloat16__ 
+The second results are more accurate than the first results.
 
 
-- exports XFloat32, XFloat16 
+The first time Float32s are used.  The second time XFloat32s are used.
+64is completed in similar time with augmented accuracy.
 
-
-### Floats that compute more accuratly just as quickly
-augmented accuracy 16bit floats and 32bit floats augmented accuracy 32bit Floats of 16bits and of 32-bt Floatsrationals with unreal performance <sup>[𝓪](#source)</sup>
+and provides 
+The , augmented accuracy, rationals with unreal performance <sup>[𝓪](#source)</sup>
 
 ##### Copyright © 2017-2019 by Jeffrey Sarnoff. This work is released under The MIT License.
-----
-[![Build Status](https://travis-ci.org/JeffreySarnoff/FastRationals.jl.svg?branch=master)](https://travis-ci.org/JeffreySarnoff/FastRationals.jl)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[![codecov](https://codecov.io/gh/JeffreySarnoff/FastRationals.jl/branch/master/graph/badge.svg)](https://codecov.io/gh/JeffreySarnoff/FastRationals.jl)
 
-----
+- there are two XFloat types, (precisely two and intentionally not three) 
+- XFloat16
+- XFloat32
 
-#### `FastRationals`
+##### _ XFloat are floating point values o_e___X__traccurate
 
 (a) an `XFloat` is a specialized type for precision enhanced floating point values
-    - `XFloat16s` are used to store and to retrieve 16 bit floating point values
-    - `XFloat32s` are used to store and to retrieve 32 bit floating point values
+    These `eXraaccurateFloat`
+    - `XFloat16` stores, carries, applies, recieves and retrieves 16 bit floating point values
+    - `XFloat32` stores, carries, applies, recieves and retrieves 32 bit floating point values
     
 (b) an `XFloat` travels when stored in an xkit
 
