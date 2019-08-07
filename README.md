@@ -7,7 +7,7 @@
 - Use them to compute results with greater accuracy at very high speed.
 
 
-The accurate floating point type corresponding to `Float64` is `Double64` ([DoubleFloats.jl](https://github.com/JuliaMath/DoubleFloats.jl.git)). That calculates much more slowly.
+        The accurate floating point type for `Float64` is `Double64` ([DoubleFloats.jl]  (https://github.com/JuliaMath/DoubleFloats.jl.git)).
 
 ----
 
