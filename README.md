@@ -1,5 +1,45 @@
 # XFloats.jl
 
+#### __XFloat32__, __XFloat16__  Augmented Accuracy, Performant Precision
+
+####  Augmented Accuracy, Performant Precision: __XFloat32__, __XFloat16__ 
+
+
+####  _XFloat32_  augmented accuracy: 
+
+####  _XFloat16_  performant precision 
+
+
+#####  _XFloat32_  augmented accuracy: 
+
+#####  _XFloat16_  performant precision 
+
+
+###  _XFloat32_  augmented accuracy: 
+
+###  _XFloat16_  performant precision 
+
+
+
+####  augmented accuracy: __XFloat32__
+
+####   performant precision: __XFloat16__ 
+
+
+- exports XFloat32, XFloat16 
+
+
+### Floats that compute more accuratly just as quickly
+augmented accuracy 16bit floats and 32bit floats augmented accuracy 32bit Floats of 16bits and of 32-bt Floatsrationals with unreal performance <sup>[𝓪](#source)</sup>
+
+##### Copyright © 2017-2019 by Jeffrey Sarnoff. This work is released under The MIT License.
+----
+[![Build Status](https://travis-ci.org/JeffreySarnoff/FastRationals.jl.svg?branch=master)](https://travis-ci.org/JeffreySarnoff/FastRationals.jl)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[![codecov](https://codecov.io/gh/JeffreySarnoff/FastRationals.jl/branch/master/graph/badge.svg)](https://codecov.io/gh/JeffreySarnoff/FastRationals.jl)
+
+----
+
+#### `FastRationals`
+
 (a) an `XFloat` is a specialized type for precision enhanced floating point values
     - `XFloat16s` are used to store and to retrieve 16 bit floating point values
     - `XFloat32s` are used to store and to retrieve 32 bit floating point values
