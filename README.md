@@ -8,7 +8,7 @@
 
 
 > The more accurate type for `Float64` is `Double64` (`DoubleFloats.jl`).
->  It calculates more slowly than these types do.
+-  It calculates more slowly than these types do.
      
 ----
 
