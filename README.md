@@ -6,9 +6,10 @@
 - These floating point types correspond to `Float16` and `Float32`.
 - Use them to compute results with greater accuracy at very high speed.
 
+###### other extended precison floating point types
 
-> The more accurate type for `Float64` is `Double64` (`DoubleFloats.jl`).
--  It calculates more slowly than these types do.
+- The more accurate type for `Float64` is `Double64` (`DoubleFloats.jl`).
+    -  It calculates more slowly than these types do.
      
 ----
 
