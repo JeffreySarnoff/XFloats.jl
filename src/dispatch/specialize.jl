@@ -144,7 +144,7 @@ Base.round(x::XFloat32, r::RoundingMode{:Nearest}) = XFloat32(Base.round(Float32
 
 =#
 
-#= aggressive
+#= aggressive =#
 
 Base.typemin(::Type{XFloat16}) = XFloat16(Base.typemin(Float32))
 Base.typemin(::Type{XFloat32}) = XFloat32(Base.typemin(Float64))
@@ -169,4 +169,4 @@ Base.round(x::XFloat32, r::RoundingMode{:Down}) = XFloat32(Base.round(Float64(x)
 Base.round(x::XFloat32, r::RoundingMode{:ToZero}) = XFloat32(Base.round(Float64(x), RoundToZero))
 Base.round(x::XFloat32, r::RoundingMode{:Nearest}) = XFloat32(Base.round(Float64(x), RoundNearest))
 
-=#
+#= =#
