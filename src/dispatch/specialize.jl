@@ -81,3 +81,16 @@ for (XT, FT) in ((:XFloat16, :Float32), (:XFloat32, :Float64))
       reinterpret(XFloat32, :(*)(reinterpret(Float64,x), reinterpret(Float64,y)))
 end
 
+Base.eps(::Type{XFloat16}) = Base.eps(Float16)
+Base.eps(::Type{XFloat32}) = Base.eps(Float32)
+
+Base.round(x::XFloat16, r::RoundingMode{:Up}) = Base.round(Float16(x), RoundUp)
+Base.round(x::XFloat16, r::RoundingMode{:Down}) = Base.round(Float16(x), RoundDown)
+Base.round(x::XFloat16, r::RoundingMode{:ToZero}) = Base.round(Float16(x), RoundToZero)
+Base.round(x::XFloat16, r::RoundingMode{:Nearest}) = Base.round(Float16(x), RoundNearest)
+
+Base.round(x::XFloat32, r::RoundingMode{:Up}) = Base.round(Float32(x), RoundUp)
+Base.round(x::XFloat32, r::RoundingMode{:Down}) = Base.round(Float32(x), RoundDown)
+Base.round(x::XFloat32, r::RoundingMode{:ToZero}) = Base.round(Float32(x), RoundToZero)
+Base.round(x::XFloat32, r::RoundingMode{:Nearest}) = Base.round(Float32(x), RoundNearest)
+
