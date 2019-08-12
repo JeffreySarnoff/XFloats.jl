@@ -15,7 +15,7 @@ Base.promote_rule(::Type{XFloat32}, ::Type{Float32} ) = XFloat32
 Base.promote_rule(::Type{XFloat32}, ::Type{Float64} ) = Float64
 Base.promote_rule(::Type{XFloat32}, ::Type{BigFloat}) = BigFloat
 Base.promote_rule(::Type{Float16}, ::Type{XFloat32} ) = XFloat32
-Base.promote_rule(::Type{Float32}, ::Type{XFloat32} ) = XFloat64
+Base.promote_rule(::Type{Float32}, ::Type{XFloat32} ) = XFloat32
 Base.promote_rule(::Type{Float64}, ::Type{XFloat32} ) = Float64
 Base.promote_rule(::Type{BigFloat}, ::Type{XFloat32}) = BigFloat
 
