@@ -81,6 +81,16 @@ for (XT, FT) in ((:XFloat16, :Float32), (:XFloat32, :Float64))
       reinterpret(XFloat32, :(*)(reinterpret(Float64,x), reinterpret(Float64,y)))
 end
 
+Base.typemin(::Type{XFloat16}) = XFloat16(Base.typemin(Float16))
+Base.typemin(::Type{XFloat32}) = XFloat32(Base.typemin(Float32))
+Base.typemax(::Type{XFloat16}) = XFloat16(Base.typemax(Float16))
+Base.typemax(::Type{XFloat32}) = XFloat32(Base.typemax(Float32))
+
+Base.floatmin(::Type{XFloat16}) = XFloat16(Base.floatmin(Float16))
+Base.floatmin(::Type{XFloat32}) = XFloat32(Base.floatmin(Float32))
+Base.floatmax(::Type{XFloat16}) = XFloat16(Base.floatmax(Float16))
+Base.floatmax(::Type{XFloat32}) = XFloat32(Base.floatmax(Float32))
+
 Base.eps(::Type{XFloat16}) = Base.eps(Float16)
 Base.eps(::Type{XFloat32}) = Base.eps(Float32)
 
