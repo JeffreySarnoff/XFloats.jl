@@ -81,6 +81,9 @@ for (XT, FT) in ((:XFloat16, :Float32), (:XFloat32, :Float64))
       reinterpret(XFloat32, :(*)(reinterpret(Float64,x), reinterpret(Float64,y)))
 end
 
+
+#= conservative
+
 Base.typemin(::Type{XFloat16}) = XFloat16(Base.typemin(Float16))
 Base.typemin(::Type{XFloat32}) = XFloat32(Base.typemin(Float32))
 Base.typemax(::Type{XFloat16}) = XFloat16(Base.typemax(Float16))
@@ -103,4 +106,30 @@ Base.round(x::XFloat32, r::RoundingMode{:Up}) = XFloat32(Base.round(Float32(x), 
 Base.round(x::XFloat32, r::RoundingMode{:Down}) = XFloat32(Base.round(Float32(x), RoundDown))
 Base.round(x::XFloat32, r::RoundingMode{:ToZero}) = XFloat32(Base.round(Float32(x), RoundToZero))
 Base.round(x::XFloat32, r::RoundingMode{:Nearest}) = XFloat32(Base.round(Float32(x), RoundNearest))
+
+=#
+
+
+Base.typemin(::Type{XFloat16}) = XFloat16(Base.typemin(Float32))
+Base.typemin(::Type{XFloat32}) = XFloat32(Base.typemin(Float64))
+Base.typemax(::Type{XFloat16}) = XFloat16(Base.typemax(Float32))
+Base.typemax(::Type{XFloat32}) = XFloat32(Base.typemax(Float64))
+
+Base.floatmin(::Type{XFloat16}) = XFloat16(Base.floatmin(Float32))
+Base.floatmin(::Type{XFloat32}) = XFloat32(Base.floatmin(Float64))
+Base.floatmax(::Type{XFloat16}) = XFloat16(Base.floatmax(Float32))
+Base.floatmax(::Type{XFloat32}) = XFloat32(Base.floatmax(Float64))
+
+Base.eps(::Type{XFloat16}) = XFloat16(Base.eps(Float32))
+Base.eps(::Type{XFloat32}) = XFloat32(Base.eps(Float64))
+
+Base.round(x::XFloat16, r::RoundingMode{:Up}) = XFloat16(Base.round(Float32(x), RoundUp))
+Base.round(x::XFloat16, r::RoundingMode{:Down}) = XFloat16(Base.round(Float32(x), RoundDown))
+Base.round(x::XFloat16, r::RoundingMode{:ToZero}) = XFloat16(Base.round(Float32(x), RoundToZero))
+Base.round(x::XFloat16, r::RoundingMode{:Nearest}) = XFloat16(Base.round(Float32(x), RoundNearest))
+
+Base.round(x::XFloat32, r::RoundingMode{:Up}) = XFloat32(Base.round(Float64(x), RoundUp))
+Base.round(x::XFloat32, r::RoundingMode{:Down}) = XFloat32(Base.round(Float64(x), RoundDown))
+Base.round(x::XFloat32, r::RoundingMode{:ToZero}) = XFloat32(Base.round(Float64(x), RoundToZero))
+Base.round(x::XFloat32, r::RoundingMode{:Nearest}) = XFloat32(Base.round(Float64(x), RoundNearest))
 
