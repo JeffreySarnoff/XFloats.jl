@@ -9,7 +9,7 @@ Platform Info:
   LLVM: libLLVM-6.0.1 (ORCJIT, skylake)
   Threads: 1
 
-
+```
         relative speeds
           (32)   (64)
 
@@ -18,3 +18,4 @@ mul:     1.0     1.08
 arith:   1.14    1.0
 muladd:  0.86    1.0
 fma:     1.14    1.0
+```
