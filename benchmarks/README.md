@@ -1,3 +1,4 @@
+```
 2019-08-07
 Julia Version 1.3.0-alpha.0
 Commit 6c11e7c2c4 (2019-07-23 01:46 UTC)
@@ -8,7 +9,7 @@ Platform Info:
   LIBM: libopenlibm
   LLVM: libLLVM-6.0.1 (ORCJIT, skylake)
   Threads: 1
-
+```
 ```
         relative speeds
           (32)   (64)
