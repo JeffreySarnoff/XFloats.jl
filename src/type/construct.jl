@@ -28,3 +28,29 @@ XFloat16(x::Bool) = reinterpret(XFloat16, Float32(x))
 XFloat32(x::Bool) = reinterpret(XFloat32, Float64(x))
 Bool(x::XFloat16) = Bool(reinterpret(Float32, x))
 Bool(x::XFloat32) = Bool(reinterpret(Float64, x))
+
+XFloat16(x::Irrational{S}) where {S} = XFloat16(Float32(x))
+XFloat32(x::Irrational{S}) where {S} = XFloat32(Float64(x))
+
+function Base.frexp(x::XFloat16)
+  fr,xp = frexp(Float32(x))
+  return XFloat16(fr), xp
+end
+
+function Base.frexp(x::XFloat32)
+  fr,xp = frexp(Float64(x))
+  return XFloat32(fr), xp
+end
+
+function Base.ldexp(x::XFloat16, xp::I) where {I<:Integer}
+   fr = Float32(x)
+   ldxp = ldexp(fr, xp)
+   return XFloat16(ldxp)
+end
+
+function Base.ldexp(x::XFloat32, xp::I) where {I<:Integer}
+   fr = Float64(x)
+   ldxp = ldexp(fr, xp)
+   return XFloat32(ldxp)
+end
+
