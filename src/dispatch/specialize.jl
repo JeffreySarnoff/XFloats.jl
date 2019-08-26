@@ -84,6 +84,79 @@ end
 
 Base.:(^)(x::XFloat16, y::XFloat16) = XFloat16(Float32(x)^(Float32(y)))
 Base.:(^)(x::XFloat32, y::XFloat32) = XFloat32(Float64(x)^(Float64(y)))
+Base.:(^)(x::XFloat16, y::Rational) = XFloat16(Float32(x)^(y))
+Base.:(^)(x::XFloat32, y::Rational) = XFloat32(Float64(x)^(y))
+Base.:(^)(x::Rational, y::XFloat16) = XFloat16(x^Float32(y))
+Base.:(^)(x::Rational, y::XFloat32) = XFloat32(x^Float64(y))
+
+Base.:(<)(x::XFloat16, y::Rational)  = Float32(x) < y
+Base.:(<=)(x::XFloat16, y::Rational) = Float32(x) <= y
+Base.:(>)(x::XFloat16, y::Rational)  = Float32(x) > y
+Base.:(>=)(x::XFloat16, y::Rational) = Float32(x) >= y
+Base.:(==)(x::XFloat16, y::Rational) = Float32(x) == y
+Base.:(!=)(x::XFloat16, y::Rational) = Float32(x) != y
+
+Base.:(<)(x::XFloat32, y::Rational)  = Float64(x) < y
+Base.:(<=)(x::XFloat32, y::Rational) = Float64(x) <= y
+Base.:(>)(x::XFloat32, y::Rational)  = Float64(x) > y
+Base.:(>=)(x::XFloat32, y::Rational) = Float64(x) >= y
+Base.:(==)(x::XFloat32, y::Rational) = Float64(x) == y
+Base.:(!=)(x::XFloat32, y::Rational) = Float64(x) != y
+
+Base.:(<)(x::Rational, y::XFloat16)  = x < Float32(x)
+Base.:(<=)(x::Rational, y::XFloat16)  = x <= Float32(x)
+Base.:(>)(x::Rational, y::XFloat16)  = x >= Float32(x)
+Base.:(>=)(x::Rational, y::XFloat16)  = x >= Float32(x)
+Base.:(==)(x::Rational, y::XFloat16)  = x == Float32(x)
+Base.:(!=)(x::Rational, y::XFloat16)  = x != Float32(x)
+
+Base.:(<)(x::Rational, y::XFloat32)  = x < Float64(x)
+Base.:(<=)(x::Rational, y::XFloat32)  = x <= Float64(x)
+Base.:(>)(x::Rational, y::XFloat32)  = x > Float64(x)
+Base.:(>=)(x::Rational, y::XFloat32)  = x >= Float64(x)
+Base.:(==)(x::Rational, y::XFloat32)  = x == Float64(x)
+Base.:(!=)(x::Rational, y::XFloat32)  = x != Float64(x)
+
+
+
+Base.:(^)(x::XFloat16, y::XFloat16) = XFloat16(Float32(x)^(Float32(y)))
+Base.:(^)(x::XFloat32, y::XFloat32) = XFloat32(Float64(x)^(Float64(y)))
+Base.:(^)(x::XFloat16, y::AbstractFloat) = XFloat16(Float32(x)^(y))
+Base.:(^)(x::XFloat32, y::AbstractFloat) = XFloat32(Float64(x)^(y))
+Base.:(^)(x::AbstractFloat, y::XFloat16) = XFloat16(x^Float32(y))
+Base.:(^)(x::AbstractFloat, y::XFloat32) = XFloat32(x^Float64(y))
+
+Base.:(<)(x::XFloat16, y::AbstractFloat)  = Float32(x) < y
+Base.:(<=)(x::XFloat16, y::AbstractFloat) = Float32(x) <= y
+Base.:(>)(x::XFloat16, y::AbstractFloat)  = Float32(x) > y
+Base.:(>=)(x::XFloat16, y::AbstractFloat) = Float32(x) >= y
+Base.:(==)(x::XFloat16, y::AbstractFloat) = Float32(x) == y
+Base.:(!=)(x::XFloat16, y::AbstractFloat) = Float32(x) != y
+
+Base.:(<)(x::XFloat32, y::AbstractFloat)  = Float64(x) < y
+Base.:(<=)(x::XFloat32, y::AbstractFloat) = Float64(x) <= y
+Base.:(>)(x::XFloat32, y::AbstractFloat)  = Float64(x) > y
+Base.:(>=)(x::XFloat32, y::AbstractFloat) = Float64(x) >= y
+Base.:(==)(x::XFloat32, y::AbstractFloat) = Float64(x) == y
+Base.:(!=)(x::XFloat32, y::AbstractFloat) = Float64(x) != y
+
+Base.:(<)(x::AbstractFloat, y::XFloat16)  = x < Float32(x)
+Base.:(<=)(x::AbstractFloat, y::XFloat16)  = x <= Float32(x)
+Base.:(>)(x::AbstractFloat, y::XFloat16)  = x >= Float32(x)
+Base.:(>=)(x::AbstractFloat, y::XFloat16)  = x >= Float32(x)
+Base.:(==)(x::AbstractFloat, y::XFloat16)  = x == Float32(x)
+Base.:(!=)(x::AbstractFloat, y::XFloat16)  = x != Float32(x)
+
+Base.:(<)(x::AbstractFloat, y::XFloat32)  = x < Float64(x)
+Base.:(<=)(x::AbstractFloat, y::XFloat32)  = x <= Float64(x)
+Base.:(>)(x::AbstractFloat, y::XFloat32)  = x > Float64(x)
+Base.:(>=)(x::AbstractFloat, y::XFloat32)  = x >= Float64(x)
+Base.:(==)(x::AbstractFloat, y::XFloat32)  = x == Float64(x)
+Base.:(!=)(x::AbstractFloat, y::XFloat32)  = x != Float64(x)
+
+
+Base.:(^)(x::XFloat16, y::XFloat16) = XFloat16(Float32(x)^(Float32(y)))
+Base.:(^)(x::XFloat32, y::XFloat32) = XFloat32(Float64(x)^(Float64(y)))
 Base.:(^)(x::XFloat16, y::Real) = XFloat16(Float32(x)^(y))
 Base.:(^)(x::XFloat32, y::Real) = XFloat32(Float64(x)^(y))
 Base.:(^)(x::Real, y::XFloat16) = XFloat16(x^Float32(y))
