@@ -13,8 +13,6 @@ using Random
 using LinearAlgebra
 using SpecialFunctions
 
-## ================================================================================ ##
-
 
 """
     XFloat32 (a float type)
