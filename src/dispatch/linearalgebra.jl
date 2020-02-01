@@ -1,3 +1,7 @@
+import LinearAlgebra: (*), (/), (\), dot, cross, factorize, inv, det, logdet, logabsdet,
+                      size, eigvals, eigvecs, svdvals
+
+
 cross(x::Vector{XFloat16}, y::Vector{XFloat16}) = reinterpret(XFloat16, cross(reinterpret(Float32, x), reinterpret(Float32, y))) 
 (*)(x::Vector{XFloat16}, y::Vector{XFloat16}) = reinterpret(XFloat16, (*)(reinterpret(Float32, x), reinterpret(Float32, y)))
 dot(x::Vector{XFloat16}, y::Vector{XFloat16}) = reinterpret(XFloat16, dot(reinterpret(Float32, x), reinterpret(Float32, y)))
