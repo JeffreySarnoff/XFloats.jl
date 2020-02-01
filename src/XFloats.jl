@@ -45,7 +45,21 @@ XFloat16(x::Float16) = reinterpret(XFloat16, Float32(x))
 XFloat16(x::Integer) = reinterpret(XFloat16, Float32(Float16(x)))
 XFloat16(x::Real) = XFloat16(Float32(x))
 
+Float64(x::XFloat32) = reinterpret(Float64, x)
+Float32(x::XFloat32) = Float32(Float64(x))
+Float16(x::XFloat32) = Float16(Float64(x))
 
+Float64(x::XFloat16) = Float64(Float32(x))
+Float32(x::XFloat16) = reinterpret(Float32, x)
+Float16(x::XFloat16) = Float16(Float32(x))
+
+for I in (:Int8, :Int16, :Int32, :Int64, :Int128, :BigInt,
+          :UInt8, :UInt16, :UInt32, :UInt64, :UInt128,)
+    @eval begin
+        $I(x::XFloat32) = $I(Float64(x))
+        $I(x::XFloat16) = $I(Float32(x))
+    end
+end
 
 include("type/construct.jl")
 include("type/promote_convert.jl")
