@@ -1,6 +1,6 @@
 # XFloats.jl
 
-##### Copyright © 2017-2019 by Jeffrey Sarnoff. This work is released under The MIT License.
+##### Copyright © 2017-2020 by Jeffrey Sarnoff. This work is released under The MIT License.
 
 `XFloats` exports two these two types: `XFloat16`, `XFloat32`.
 - These floating point types correspond to `Float16` and `Float32`.
