@@ -1,3 +1,10 @@
+for F in (:+, :-, :abs, :inv, :sqrt, :cbrt)
+  @eval begin
+    $F(x::XFloat16) = XFloat16($F(Float32(x)))
+    $F(x::XFloat32) = XFloat32($F(Float64(x)))
+  end
+end
+
 for F in (:+, :-, :*, :/, :\, :^)
   @eval begin
     $F(x::XFloat16, y::XFloat16) = XFloat16($F(Float32(x), Float32(y)))
