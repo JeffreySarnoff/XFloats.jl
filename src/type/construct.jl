@@ -26,8 +26,6 @@ for I in (:Int8, :Int16, :Int32, :Int64, :Int128, :BigInt,
     @eval begin
         $I(x::XFloat32) = $I(Float64(x))
         $I(x::XFloat16) = $I(Float32(x))
-        $I(x::XFloat16) = $I(reinterpret(Float32,x))
-        $I(x::XFloat32) = $I(reinterpret(Float64,x))
     end
 end
 
