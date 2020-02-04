@@ -9,6 +9,7 @@ module XFloats
 
 export XFloat32, XFloat16
 
+using Printf
 using Random
 using LinearAlgebra
 using SpecialFunctions
