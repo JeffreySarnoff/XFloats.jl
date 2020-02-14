@@ -36,7 +36,7 @@ Creates the constructors `T(::XFloat)`, `XFloat(::T)` .
 
 ```
 using XFloat, DoubleFloats
-@FromXFloat(Double64)
+@XFloat(Double64)
 xfloat = XFloat(pi)
 double64 = Double64(xfloat)
 xfloat = XFloat(double64)
