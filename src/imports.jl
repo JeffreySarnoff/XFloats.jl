@@ -1,8 +1,6 @@
 import Base: hash,
     string, show, tryparse,
     Float16, Float32, Float64, BigFloat,
-    UInt8, UInt16, UInt32, UInt64, UInt128,
-    Int8, Int16, Int32, Int64, Int128, BigInt,
     Bool, size, axes
 
 import Base: precision, exponent_mask, significand_mask, eps, exponent, significand,
