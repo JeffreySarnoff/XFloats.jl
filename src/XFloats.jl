@@ -2,10 +2,11 @@
 `XFloats.jl` -- 32-bit floats with extended computational accuracy.
 
 exports type `XFloat`
+        macro `@XfloatOf`
 """
 module XFloats
 
-export XFloat
+export XFloat, @XFloatOf
 
 using Printf
 using Random
@@ -27,6 +28,15 @@ XFloat(x::Float32) = XFloat(Float64(x))
 Base.Float32(x::XFloat) = Float32(Float64(x))
 XFloat(x::Float16) = XFloat(Float64(x))
 Base.Float16(x::XFloat) = Float16(Float64(x))
+
+"""
+    @XFloatOf(T::Real)
+
+Creates the constructor T(::XFloat). 
+"""
+macro XFloatOf(T)
+   ($T(x::XFloat) = $T(Float64(x)))
+end   
 
 include("type/construct.jl")
 include("type/promote_convert.jl")
