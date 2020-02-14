@@ -1,13 +1,11 @@
 """
-`XFloats.jl` -- fast 32-bit and 16-bit floats with extended accuracy.
+`XFloats.jl` -- 32-bit floats with extended computational accuracy.
 
-Two types are exported:
-- `XFloat32`. 32-bit floating point type with eXtended computational accuracy.
-- `XFloat16`. 16-bit floating point type with eXtended computational accuracy.
+exports type `XFloat`
 """
 module XFloats
 
-export XFloat32, XFloat16
+export XFloat
 
 using Printf
 using Random
@@ -16,20 +14,19 @@ using SpecialFunctions
 
 
 """
-    XFloat32 (a float type)
+    XFloat (a float type)
 
 A more accurate alternative to Float32 that works as a Float64.
 """ 
-primitive type XFloat32 <: AbstractFloat 64 end
-XFloat32(x::XFloat32) = x
+primitive type XFloat <: AbstractFloat 64 end
+XFloat(x::XFloat) = x
 
-"""
-    XFloat16 (a float type)
-
-A more accurate alternative to Float16 that works as a Float32.
-""" 
-primitive type XFloat16 <: AbstractFloat 32 end
-XFloat16(x::XFloat16) = x
+XFloat(x::Float64) = reinterpret(XFloat, x)
+Base.Float64(x::XFloat) = reinterpret(Float64, x)
+XFloat(x::Float32) = XFloat(Float64(x))
+Base.Float32(x::XFloat) = Float32(Float64(x))
+XFloat(x::Float16) = XFloat(Float64(x))
+Base.Float16(x::XFloat) = Float16(Float64(x))
 
 include("type/construct.jl")
 include("type/promote_convert.jl")
