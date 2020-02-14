@@ -17,6 +17,18 @@ using SpecialFunctions
     XFloat (a float type)
 
 A more accurate alternative to Float32 that works as a Float64.
+
+    @XFloat(T::Real)
+
+Creates the constructors `T(::XFloat)`, `XFloat(::T)` .
+
+```
+using XFloat, DoubleFloats
+@XFloat(Double64)
+xfloat = XFloat(pi)
+double64 = Double64(xfloat)
+xfloat = XFloat(double64)
+```
 """ XFloat
 
 primitive type XFloat <: AbstractFloat 64 end
@@ -28,21 +40,6 @@ XFloat(x::Float32) = XFloat(Float64(x))
 Base.Float32(x::XFloat) = Float32(Float64(x))
 XFloat(x::Float16) = XFloat(Float64(x))
 Base.Float16(x::XFloat) = Float16(Float64(x))
-
-"""
-    @XFloat(T::Real)
-
-Creates the constructors `T(::XFloat)`, `XFloat(::T)` .
-
-```
-
-using XFloat, DoubleFloats
-@XFloat(Double64)
-xfloat = XFloat(pi)
-double64 = Double64(xfloat)
-xfloat = XFloat(double64)
-```
-""" @XFloat
 
 macro FromXFloat(T)
    :($T(x::XFloat) = $T(Float64(x)))
