@@ -30,13 +30,28 @@ XFloat(x::Float16) = XFloat(Float64(x))
 Base.Float16(x::XFloat) = Float16(Float64(x))
 
 """
-    @FromXFloat(T::Real)
+    @XFloat(T::Real)
 
-Creates the constructor T(::XFloat). 
+Creates the constructors `T(::XFloat)`, `XFloat(::T)` .
+
+```
+using XFloat, DoubleFloats
+@FromXFloat(Double64)
+xfloat = XFloat(pi)
+double64 = Double64(xfloat)
+xfloat = XFloat(double64)
+```
 """
 macro FromXFloat(T)
-   ($T(x::XFloat) = $T(Float64(x)))
-end   
+   :($T(x::XFloat) = $T(Float64(x)))
+end
+macro IntoXFloat(T)
+   :(XFloat(x::$T) = XFloat(Float64(x)))
+end
+macro XFloat(T)
+    :(@FromXFloat($T); @IntoXFloat($T);)
+end
+
 
 include("type/construct.jl")
 include("type/promote_convert.jl")
