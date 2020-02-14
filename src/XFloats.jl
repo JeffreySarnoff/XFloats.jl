@@ -17,7 +17,8 @@ using SpecialFunctions
     XFloat (a float type)
 
 A more accurate alternative to Float32 that works as a Float64.
-""" 
+""" @XFloat
+
 primitive type XFloat <: AbstractFloat 64 end
 XFloat(x::XFloat) = x
 
