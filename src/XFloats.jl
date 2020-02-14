@@ -34,7 +34,7 @@ Base.Float16(x::XFloat) = Float16(Float64(x))
 
 Creates the constructors `T(::XFloat)`, `XFloat(::T)` .
 
-``` @XFloat
+```
 
 using XFloat, DoubleFloats
 @XFloat(Double64)
@@ -42,7 +42,8 @@ xfloat = XFloat(pi)
 double64 = Double64(xfloat)
 xfloat = XFloat(double64)
 ```
-"""
+""" @XFloat
+
 macro FromXFloat(T)
    :($T(x::XFloat) = $T(Float64(x)))
 end
