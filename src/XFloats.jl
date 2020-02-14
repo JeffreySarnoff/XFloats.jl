@@ -1,12 +1,11 @@
 """
 `XFloats.jl` -- 32-bit floats with extended computational accuracy.
 
-exports type `XFloat`
-        macro `@XfloatOf`
+exports type `XFloat`, macro `@Xfloat`
 """
 module XFloats
 
-export XFloat, @FromXFloat
+export XFloat, @XFloat
 
 using Printf
 using Random
