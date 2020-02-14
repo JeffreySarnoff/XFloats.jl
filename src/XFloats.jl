@@ -6,7 +6,7 @@ exports type `XFloat`
 """
 module XFloats
 
-export XFloat, @XFloatOf
+export XFloat, @FromXFloat
 
 using Printf
 using Random
@@ -30,11 +30,11 @@ XFloat(x::Float16) = XFloat(Float64(x))
 Base.Float16(x::XFloat) = Float16(Float64(x))
 
 """
-    @XFloatOf(T::Real)
+    @FromXFloat(T::Real)
 
 Creates the constructor T(::XFloat). 
 """
-macro XFloatOf(T)
+macro FromXFloat(T)
    ($T(x::XFloat) = $T(Float64(x)))
 end   
 
